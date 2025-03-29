@@ -1,0 +1,15 @@
+<section class="countdown-container">
+  @switch (status()) { @case (CountdownStatus.Loading) {
+  <p>Loading seconds left to deadline...</p>
+  } @case (CountdownStatus.Running) {
+  <p>
+    Seconds left to deadline: <strong>{{ secondsLeft() }}</strong>
+  </p>
+  } @case (CountdownStatus.Finished) {
+  <p>Heyyy, the deadline has been reached !!!</p>
+  } @case (CountdownStatus.Error) {
+  <p style="color: red">Error: {{ errorMessage() }}</p>
+  } @default {
+  <p>Waiting for status...</p>
+  } }
+</section>
