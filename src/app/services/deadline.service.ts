@@ -15,9 +15,8 @@ export class DeadlineService {
   constructor(private readonly http: HttpClient) {}
 
   getEndpointData(): Observable<DeadlineResponse> {
-    // return this.http.get<DeadlineResponse>(this.apiUrl).pipe(
-    return of({ secondsLeft: 12 }).pipe(
-      // simulating API response for testing
+    return this.http.get<DeadlineResponse>(this.apiUrl).pipe(
+      // return of({ secondsLeft: 12 }).pipe(  // simulating API response for testing
       retry(2)
     );
   }
